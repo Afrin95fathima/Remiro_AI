@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remiro AI - 12D Career Counselling System</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 20px;
+            color: white;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .feature {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .feature h3 {
+            color: #ffd700;
+            margin-top: 0;
+        }
+        .demo-section {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        .interactive-demo {
+            background: white;
+            color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+        .question {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+        .options {
+            list-style: none;
+            padding: 0;
+        }
+        .options li {
+            background: #f8f9fa;
+            margin: 8px 0;
+            padding: 12px;
+            border-radius: 8px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .options li:hover {
+            background: #e9ecef;
+            border-color: #667eea;
+        }
+        .app-link {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .app-link a {
+            background: #ffd700;
+            color: #333;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+        .app-link a:hover {
+            background: #ffed4e;
+            transform: translateY(-2px);
+        }
+        .improvements {
+            background: rgba(76, 175, 80, 0.2);
+            border: 1px solid rgba(76, 175, 80, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .improvements h3 {
+            color: #4caf50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Remiro AI</h1>
+        <p class="subtitle">Advanced 12-Dimensional Career Counselling System</p>
+        
+        <div class="improvements">
+            <h3>✅ System Improvements Completed</h3>
+            <ul>
+                <li><strong>Fixed "Invalid workflow result type" error</strong> - All workflow nodes now return proper state objects</li>
+                <li><strong>Dynamic Interactive Questions</strong> - Multiple choice and checkbox options when AI is unavailable</li>
+                <li><strong>Robust Error Handling</strong> - Graceful fallbacks for API failures</li>
+                <li><strong>Intelligent Routing</strong> - Keyword-based routing when AI services fail</li>
+                <li><strong>Professional UI</strong> - Enhanced chat interface with interactive elements</li>
+            </ul>
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <h3>🧠 12 Specialized Agents</h3>
+                <p>Cognitive Abilities, Personality, Emotional Intelligence, Physical Context, Strengths & Weaknesses, Skills, Constraints, Interests, Values, Aspirations, Track Record, and Learning Preferences</p>
+            </div>
+            
+            <div class="feature">
+                <h3>🤖 Master Agent Orchestration</h3>
+                <p>Intelligent routing between specialists using LangGraph workflow with fallback decision-making for robust operation</p>
+            </div>
+            
+            <div class="feature">
+                <h3>💬 Interactive Assessment</h3>
+                <p>Dynamic multiple-choice questions, checkboxes, and conversational evaluation that adapts to each user's responses</p>
+            </div>
+            
+            <div class="feature">
+                <h3>📊 Real-time Progress</h3>
+                <p>Live assessment completion tracking with personalized career recommendations based on comprehensive profiling</p>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>🎮 Interactive Question Demo</h2>
+            <p>Here's how the system now provides dynamic, engaging questions with multiple choice options:</p>
+            
+            <div class="interactive-demo">
+                <div class="question">Hello! Let's explore your cognitive strengths. When you encounter a complex problem, what's typically your first approach?</div>
+                <ul class="options">
+                    <li>🔍 Break it down into smaller, manageable parts</li>
+                    <li>🔄 Look for similar problems I've solved before</li>
+                    <li>📚 Research and gather as much information as possible</li>
+                    <li>💡 Brainstorm multiple creative solutions</li>
+                    <li>👥 Ask others for their perspectives and insights</li>
+                </ul>
+            </div>
+            
+            <div class="interactive-demo">
+                <div class="question">How do you prefer to learn new concepts or skills?</div>
+                <ul class="options">
+                    <li>🛠️ Hands-on practice and experimentation</li>
+                    <li>📖 Reading detailed explanations and theories</li>
+                    <li>📊 Visual diagrams, charts, and demonstrations</li>
+                    <li>👥 Group discussions and collaborative learning</li>
+                    <li>📋 Step-by-step guided instruction</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>🏗️ System Architecture</h2>
+            <ul>
+                <li><strong>Python 3.13.5</strong> with LangChain & LangGraph</li>
+                <li><strong>Google Gemini API</strong> integration with fallback mechanisms</li>
+                <li><strong>Streamlit</strong> professional web interface</li>
+                <li><strong>Pydantic Models</strong> for type-safe data management</li>
+                <li><strong>Local File Storage</strong> for user profiles and conversations</li>
+                <li><strong>Multi-Agent Orchestration</strong> with state management</li>
+            </ul>
+        </div>
+
+        <div class="app-link">
+            <a href="http://localhost:8510" target="_blank">🚀 Open Remiro AI Application</a>
+        </div>
+
+        <div class="demo-section">
+            <h2>🎯 Key Features Implemented</h2>
+            <ul>
+                <li><strong>Error Resilience:</strong> System continues working even when AI APIs fail</li>
+                <li><strong>Dynamic Questions:</strong> Non-predefined, contextual questions based on user responses</li>
+                <li><strong>Interactive UI:</strong> Radio buttons, checkboxes, and engaging conversation flow</li>
+                <li><strong>Intelligent Fallbacks:</strong> Keyword-based routing and pre-built question banks</li>
+                <li><strong>Professional Design:</strong> Gradient UI with real-time progress tracking</li>
+                <li><strong>Comprehensive Assessment:</strong> Full 12-dimensional career evaluation</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
