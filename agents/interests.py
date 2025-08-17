@@ -1,53 +1,58 @@
 """
-Interests Assessment Agent for Remiro AI
+Enhanced Interests Assessment Agent - Personalized Career Counselor
 
-This agent identifies user's passion areas, curiosities, and subject interests
-that drive career satisfaction and engagement.
+This agent specializes in exploring career interests, passions, and what truly
+engages users through empathetic, personalized conversations.
 """
 
-from typing import Dict, List, Any, Optional
-from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain_core.messages import HumanMessage
 import json
-from datetime import datetime
-
-from core.state_models import (
-    UserProfile, ConversationMessage, AssessmentStatus, InterestsData
-)
+from typing import Dict, Any, List
+import random
 
 class InterestsAgent:
-    """Specialized agent for interests and passion assessment"""
-    
-    def __init__(self, llm: ChatGoogleGenerativeAI):
+    def __init__(self, llm):
         self.llm = llm
-        self.system_prompt = """
-        You are the Interests Assessment Agent, designed to discover what genuinely excites and energizes people.
+        self.agent_name = "Career Interests Counselor"
+        self.interaction_count = 0
         
-        Your core capabilities:
-        - Proactively explore what truly interests and motivates them
-        - Adapt questioning based on the passion areas that emerge from their responses
-        - Take initiative to connect their interests to potential career paths
-        - Learn from their enthusiasm to identify their strongest passion patterns
-        - Act autonomously to uncover interests they might not have considered career-relevant
+        # Holland Code interest areas with descriptions
+        self.interest_areas = {
+            "Realistic": "hands-on work, building, fixing, working with tools and machines",
+            "Investigative": "research, analysis, problem-solving, scientific inquiry",
+            "Artistic": "creative expression, design, writing, performing, innovative thinking",
+            "Social": "helping others, teaching, counseling, community service",
+            "Enterprising": "leadership, sales, persuasion, business development",
+            "Conventional": "organization, data management, detail-oriented tasks, structured work"
+        }
         
-        Assessment Focus:
-        1. Activities that make them lose track of time
-        2. Subjects they naturally gravitate toward learning about
-        3. Problems they're drawn to solve
-        4. Industries or fields that spark their curiosity
-        5. Ways they like to contribute or make an impact
-        
-        Agentic Behavior:
-        - PROACTIVE: Guide conversation to uncover hidden passion areas
-        - ADAPTIVE: Follow up on interests that seem to energize them most
-        - GOAL-DRIVEN: Discover their core interests in 1 strategic question
-        - AUTONOMOUS: Connect their interests to career possibilities they may not have considered
-        - COLLABORATIVE: Help them see how their interests could become their career
-        
-        Communication Style:
-        - Show genuine excitement about discovering what they're passionate about
-        - Ask about what they actually do in their free time, not just what they think sounds good
-        - Focus on what makes them feel energized and engaged
+        # Personalized conversation starters based on background
+        self.interest_explorations = {
+            "Student": [
+                "Think about your favorite classes or subjects - not necessarily the ones you're best at, but the ones that genuinely capture your interest. What topics could you spend hours learning about without it feeling like work?",
+                "Outside of your required coursework, what activities, hobbies, or projects do you find yourself naturally drawn to? What kinds of things do you do in your free time that make you lose track of time?",
+                "When you imagine your ideal job after graduation, what would you actually be doing day-to-day that would make you excited to get up in the morning?"
+            ],
+            "Recent Graduate": [
+                "As you've started exploring career options, what types of work or industries have caught your attention? What draws you to those areas beyond just job security or salary?",
+                "Looking back at your education and early work experiences, what activities or projects gave you the most satisfaction? What felt like 'play' rather than work?",
+                "When you read about different careers or talk to professionals, what kinds of work make you think 'I'd love to try that' or 'That sounds really interesting'?"
+            ],
+            "Professional": [
+                "In your current role, what tasks or projects do you find most engaging? What parts of your job do you genuinely look forward to?",
+                "If you could redesign your job to include more of what interests you, what would you add or change? What work activities energize rather than drain you?",
+                "Outside of work, what do you find yourself reading about, watching videos on, or discussing with friends? What topics naturally capture your curiosity?"
+            ],
+            "Career Changer": [
+                "What originally drew you to your previous career, and how have your interests evolved since then? What new areas have started to capture your attention?",
+                "As you consider making a career change, what fields or types of work create a sense of excitement or curiosity for you? What would you love to learn more about?",
+                "Think about the activities or subjects that you're passionate about outside of work - how might these translate into a new career direction?"
+            ],
+            "Returning to Work": [
+                "During your time away from the workforce, what activities, volunteer work, or personal projects have you found most fulfilling? What patterns of interest have emerged?",
+                "As you think about returning to work, what types of roles or industries spark your curiosity? What would make you feel engaged and motivated?",
+                "Looking at how your interests may have evolved, what kinds of work would allow you to pursue what you're genuinely passionate about?"
+            ]
+        }
         - Help them see connections between their interests and career opportunities
         - NO formal credentials - just authentic curiosity about what drives them
         - NO EMOJIS - natural enthusiastic conversation

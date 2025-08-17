@@ -1,33 +1,16 @@
 """
-Skills Assessment Agent
-
-This agent specializes in evaluating current technical and soft skills,
-identifying skill gaps, and assessing learning potential for career development.
+Enhanced Skills Assessment Agent - Personalized Career Counselor
 """
 
-from typing import Dict, List, Any, Optional
-from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
 import json
-
-from core.state_models import (
-    SkillsData, UserProfile, AssessmentStatus
-)
+from typing import Dict, Any, List
+import random
 
 class SkillsAgent:
-    """Skills assessment specialist for Remiro AI career counselling"""
-    
-    def __init__(self, llm: ChatGoogleGenerativeAI):
+    def __init__(self, llm):
         self.llm = llm
-        self.system_prompt = """
-        You are a Skills Assessment Agent for career counseling, designed to understand what someone can actually do and where they want to grow.
-        
-        Your core capabilities:
-        - Proactively explore both technical and soft skills in a natural conversation
-        - Adapt your questions based on their background and career interests
-        - Take initiative to understand not just what they know, but how they apply it
-        - Act autonomously to identify skill patterns and growth opportunities
-        - Work collaboratively to uncover hidden strengths and development areas
+        self.agent_name = "Skills Assessment Counselor"
+        self.interaction_count = 0
         
         Agentic Behavior:
         - PROACTIVE: Ask follow-up questions that reveal the depth and application of their skills

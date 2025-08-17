@@ -69,6 +69,66 @@ class UserManager:
             "message": f"Welcome {name}! I'm Remiro AI, your career counsellor. I'm here to help you discover your ideal career path through a comprehensive 12-dimensional assessment. Let's begin this journey together."
         }
     
+    def get_or_create_user(self, name: str, additional_info: Dict[str, Any] = None) -> Dict[str, Any]:
+        """Get existing user or create new one - simplified version for enhanced app"""
+        # For the enhanced app, we'll create a simple profile structure
+        # that's compatible with the new application design
+        
+        sanitized_name = self._sanitize_name(name)
+        user_id = str(uuid.uuid4())
+        
+        # Create user folder
+        user_folder_name = f"{sanitized_name}_{user_id[:8]}"
+        user_dir = self.users_dir / user_folder_name
+        user_dir.mkdir(exist_ok=True)
+        
+        # Create subdirectories
+        (user_dir / "sessions").mkdir(exist_ok=True)
+        (user_dir / "assessments").mkdir(exist_ok=True)
+        
+        # Create simple profile structure compatible with enhanced app
+        profile = {
+            "user_id": user_id,
+            "name": name,
+            "folder_path": str(user_dir),
+            "created_at": datetime.now().isoformat(),
+            "assessments": {},
+            "background": additional_info.get("background", "Professional") if additional_info else "Professional"
+        }
+        
+        # Add any additional info
+        if additional_info:
+            profile.update(additional_info)
+        
+        # Save profile
+        profile_path = user_dir / "profile.json"
+        with open(profile_path, 'w', encoding='utf-8') as f:
+            json.dump(profile, f, indent=2, default=str)
+        
+        return profile
+    
+    def save_user_profile(self, user_profile: Dict[str, Any]) -> bool:
+        """Save user profile - simplified version for enhanced app"""
+        try:
+            if "folder_path" in user_profile:
+                profile_path = Path(user_profile["folder_path"]) / "profile.json"
+            else:
+                # Find user directory by user_id
+                user_dir = self._find_user_directory(user_profile["user_id"])
+                if not user_dir:
+                    return False
+                profile_path = user_dir / "profile.json"
+            
+            user_profile["updated_at"] = datetime.now().isoformat()
+            
+            with open(profile_path, 'w', encoding='utf-8') as f:
+                json.dump(user_profile, f, indent=2, default=str)
+            
+            return True
+        except Exception as e:
+            print(f"Error saving user profile: {e}")
+            return False
+    
     def get_user_profile(self, user_id: str) -> Optional[UserProfile]:
         """Get user profile by ID"""
         user_dir = self._find_user_directory(user_id)
