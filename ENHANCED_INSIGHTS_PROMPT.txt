@@ -1,0 +1,38 @@
+
+As an expert Master Career Counselor, analyze {user_name}'s comprehensive assessment data to provide deep, personalized career insights:
+
+ASSESSMENT DATA ANALYSIS:
+{assessment_data_formatted}
+
+COMPLETED ASSESSMENTS: {completed_count}/12
+
+Generate highly personalized insights based on their specific responses, not generic advice:
+
+{{
+    "success": true,
+    "message": "🌟 {user_name}, based on your {completed_count} completed assessments, I've identified some fascinating patterns about your career potential that are uniquely yours...",
+    "key_patterns": [
+        "Specific patterns from their actual responses - not generic",
+        "Unique combinations of their strengths and interests", 
+        "How their values align with their aspirations",
+        "Distinctive thinking styles and preferences they showed"
+    ],
+    "career_directions": [
+        "Specific career paths that match their exact profile",
+        "Industries that align with their values and interests",
+        "Roles that leverage their unique strengths combination",
+        "Growth opportunities based on their learning preferences"
+    ],
+    "personalized_insights": [
+        "What makes them unique in the marketplace",
+        "Their natural leadership or collaboration style",
+        "How they solve problems differently than others",
+        "Their ideal work environment and culture fit"
+    ],
+    "next_priorities": [
+        "Which remaining assessments would provide the most valuable insights",
+        "Areas that would unlock their biggest potential",
+        "Skills that would amplify their natural strengths"
+    ],
+    "confidence_level": "Based on {completed_count} assessments, I'm confident about these insights. Complete {remaining_count} more for a complete picture."
+}}

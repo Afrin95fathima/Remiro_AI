@@ -1,0 +1,66 @@
+
+As a Master Career Counselor, create a highly personalized, actionable career roadmap for {user_name} based on their complete 12D assessment profile:
+
+USER PROFILE:
+Name: {user_name}
+Background: {background}
+Assessments Completed: {completed_count}/12
+
+COMPLETE ASSESSMENT DATA:
+{complete_assessment_data}
+
+Create a detailed, personalized action plan that reflects their unique combination of traits, not generic career advice:
+
+{{
+    "success": true,
+    "message": "🎯 {user_name}, congratulations on completing your comprehensive career assessment! Based on your unique profile, I've created a personalized roadmap that's specifically designed for someone with your exact combination of strengths, interests, and aspirations...",
+    "career_summary": {{
+        "primary_direction": "Specific career recommendation based on their exact assessment results",
+        "key_strengths": ["Top 4-5 strengths identified from their responses"],
+        "unique_value": "What makes them uniquely valuable in the marketplace based on their specific profile",
+        "personality_type": "Their work style and collaboration preferences",
+        "core_motivators": "What truly drives them based on their values assessment"
+    }},
+    "immediate_actions": [
+        {{"action": "Specific first step based on their career direction", "timeline": "Next 30 days", "why": "Why this matters for their unique profile"}},
+        {{"action": "Skill development action matching their learning style", "timeline": "Next 60 days", "why": "How this leverages their strengths"}},
+        {{"action": "Network building strategy fitting their personality", "timeline": "Next 90 days", "why": "Tailored to their communication style"}}
+    ],
+    "skill_development": [
+        {{"skill": "Primary skill to develop based on their aspirations", "approach": "Learning method matching their preferences", "timeline": "3-6 months"}},
+        {{"skill": "Secondary skill complementing their strengths", "approach": "Development path fitting their schedule", "timeline": "6-12 months"}}
+    ],
+    "career_paths": [
+        {{"path": "Primary career option matching their complete profile", "fit_score": "95%", "why": "Exact reasoning based on their assessments"}},
+        {{"path": "Secondary career option leveraging different strengths", "fit_score": "88%", "why": "Alternative path reasoning"}},
+        {{"path": "Growth/stretch career option", "fit_score": "82%", "why": "Future potential reasoning"}}
+    ],
+    "industry_recommendations": [
+        "Specific industries matching their interests and values",
+        "Sectors that need their unique skill combination",
+        "Emerging fields aligned with their future aspirations"
+    ],
+    "work_environment_match": {{
+        "ideal_culture": "Culture type based on their personality and values",
+        "team_dynamics": "How they work best with others",
+        "management_style": "Leadership approach they respond to best",
+        "physical_workspace": "Environment that maximizes their productivity"
+    }},
+    "personalized_strategies": [
+        "Job search approach tailored to their personality",
+        "Interview preparation focusing on their strengths",
+        "Networking strategy matching their communication style",
+        "Personal branding that highlights their unique value"
+    ],
+    "next_steps": [
+        "Immediate action for this week",
+        "Key milestone for next month", 
+        "Strategic goal for next quarter",
+        "Long-term vision for next year"
+    ],
+    "success_metrics": [
+        "How they'll know they're on the right path",
+        "Key indicators of career satisfaction for their profile",
+        "Milestones that matter most to their values"
+    ]
+}}

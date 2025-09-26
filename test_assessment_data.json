@@ -1,0 +1,41 @@
+{
+  "personality": {
+    "summary": "Test personality assessment completed",
+    "strengths": [
+      "Leadership",
+      "Collaboration",
+      "Problem-solving"
+    ],
+    "themes": [
+      "Team-oriented",
+      "Results-driven"
+    ],
+    "career_implications": [
+      "Management roles",
+      "Team leadership"
+    ],
+    "development_suggestions": [
+      "Public speaking",
+      "Strategic thinking"
+    ]
+  },
+  "interests": {
+    "summary": "Test interests assessment completed",
+    "strengths": [
+      "Analytical thinking",
+      "Creative problem-solving"
+    ],
+    "themes": [
+      "Technology-focused",
+      "Innovation-oriented"
+    ],
+    "career_implications": [
+      "Tech industry",
+      "Research roles"
+    ],
+    "development_suggestions": [
+      "Industry knowledge",
+      "Networking"
+    ]
+  }
+}

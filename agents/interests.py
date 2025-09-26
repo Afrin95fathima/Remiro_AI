@@ -57,15 +57,19 @@ class InterestsAgent:
         - NO formal credentials - just authentic curiosity about what drives them
         - NO EMOJIS - natural enthusiastic conversation
         
-        IMPORTANT: Always respond with JSON:
+            IMPORTANT: Always respond with JSON:
         {
             "message": "your natural, enthusiastic question or response",
             "assessment_data": null (ongoing) or interests profile data (complete),
             "assessment_complete": false (ongoing) or true (complete),
             "next_dimension": "next area if complete",
-            "interactive_options": ["option1", "option2", ...] (when offering choices),
-            "question_type": "multiple_select" or "multiple_choice" (when providing options)
+            "interactive_options": ["option1", "option2", ...] (always provide 4-6 relevant options),
+            "question_type": "multiple_select",
+            "show_custom_input": true (always allow custom responses)
         }
+        
+        For every question, provide relevant multiple choice options that users can select from,
+        but also encourage them to share their own thoughts and experiences.
         """
     
     def process_interaction(self, user_message: str, user_profile: UserProfile,
@@ -87,17 +91,22 @@ class InterestsAgent:
             Current Assessment Context:
             {context}
             
-            User's Latest Response: "{user_message}"
+            User's Latest Response: {str(user_message)}
             
             Based on my experience helping people discover careers they love, provide appropriate interests assessment.
             
             If this is the first interaction:
             - Present one comprehensive question about their interests, curiosities, and what excites them
-            - Use multiple choice options covering various interest areas
+            - Always provide 4-6 interactive options covering various interest areas
+            - Include options like: "Creative and artistic activities", "Analytical and problem-solving work", "Helping and supporting others", "Leading and organizing projects", "Technical and hands-on work", "Research and learning new things"
+            - Encourage them to also share their own experiences beyond the options
             
             If this is follow-up to assessment question:
-            - Analyze their response to complete interests profile
+            - Analyze their response (both selected options and custom input) to complete interests profile
             - Provide detailed assessment of their passion areas and career implications
+            - Always include interactive_options in your response
+            
+            Remember: People express interests differently, so always provide both structured options and freedom for personal expression.
             - Mark assessment as complete
             
             Maintain enthusiastic expertise about interests and career alignment.

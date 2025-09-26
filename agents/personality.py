@@ -75,7 +75,17 @@ class PersonalityAgent:
             "success": True,
             "message": welcome_message,
             "assessment_data": None,
-            "assessment_complete": False
+            "assessment_complete": False,
+            "interactive_options": [
+                "Leading and organizing team activities",
+                "Contributing ideas while others coordinate",
+                "Working independently on focused tasks", 
+                "Collaborating closely with small groups",
+                "Taking charge when situations need direction",
+                "Supporting others and helping them succeed"
+            ],
+            "question_type": "multiple_select",
+            "show_custom_input": True
         }
     
     async def _process_personality_response(self, user_input: str, user_name: str, background: str, user_profile: Dict[str, Any]) -> Dict[str, Any]:
